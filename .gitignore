@@ -1,0 +1,33 @@
+# LaTeX-Hilfsdateien
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdy
+*.acn
+*.acr
+*.alg
+*.lol
+*.loe
+out/
+build/
+
+# OS / Editor
+.DS_Store
+Thumbs.db

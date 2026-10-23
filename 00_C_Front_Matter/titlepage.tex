@@ -1,0 +1,33 @@
+\begin{titlepage}
+    \raggedright
+    \fontfamily{phv}\selectfont % Word-Vorlage: Tahoma -> Helvetica-Klon
+    \thispagestyle{empty}
+
+    % Logo links oben (in der Word-Vorlage in der Kopfzeile)
+    \includegraphics[height=1.8cm]{00_figures/logo.jpg}
+
+    \vspace{3cm}
+    \centering
+    {\usekomafont{title}\yourThesisTitle\par}   % 24pt fett
+
+    \vspace{3cm}
+    {\usekomafont{subtitle}\typeOfWorkLabel\par} \vspace{0.3cm}   % "Seminararbeit zum"
+    {\usekomafont{subtitle}\seminarName\par}     \vspace{1cm}     % "Seminar Aktuelle Themen"
+    {\usekomafont{subtitle}\studyProgram\par}    \vspace{0.3cm}
+    {\usekomafont{subtitle}\departmentName\par}
+
+    \vspace{3cm}
+    \usefont{T1}{phv}{m}{n}\fontsize{12pt}{14pt}\selectfont
+    \noindent\begin{tabular}{@{}ll}
+        \submittedByLabel & \yourNameInclTitle \\[0.1cm]
+        \matNumberLabel   & \yourMatNumber     \\[0.3cm]
+        \ifdefempty{\secondAuthorName}{}{%
+            \submittedByLabel & \secondAuthorName      \\[0.1cm]
+            \matNumberLabel   & \secondAuthorMatNumber \\[0.3cm]
+        }%
+        \ifdefempty{\supervisorNameInclTitle}{}{%
+            \advisorLabel & \supervisorNameInclTitle \\[0.3cm]
+        }%
+        \dateLabel & \thesisDate
+    \end{tabular}
+\end{titlepage}

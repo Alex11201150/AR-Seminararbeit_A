@@ -1,0 +1,45 @@
+% =====================================================================
+%  Seminararbeit – LaTeX-Template (Hochschule Burgenland, Department IT)
+%  Basiert auf dem offiziellen MSc-Thesis-Template (MCCE) und der
+%  Word-Vorlage "Vorlage_Seminararbeit V1_3.docx".
+%
+%  Kompilieren:  latexmk -pdf seminararbeit.tex   (Biber wird automatisch aufgerufen)
+% =====================================================================
+\documentclass[oneside,open=any,toc=chapterentrywithdots,a4paper,fontsize=12pt,listof=totoc,bibliography=totoc]{scrbook}
+\input{00_A_preamble/german}        % Beschriftungen (Titelblatt) – alternativ: english
+\input{00_A_preamble/seminar}       % Pakete + FH-Formatvorgaben
+\input{00_B_data/yourData}          % >>> HIER eigene Daten eintragen <<<
+\input{00_C_setup/setup}
+
+\begin{document}
+
+\input{00_C_Front_Matter/titlepage}   % Deckblatt
+
+\frontmatter{}                        % römische Seitenzahlen, keine Kapitelnummern
+
+\input{00_D_config/config}            % Inhaltsverzeichnis
+
+% --- Kurzfassung --- %
+\input{01_chapters/00/00_abstract_de}
+
+\mainmatter{}                         % arabische Seitenzahlen ab 1, Kapitelnummern an
+
+% --- Kapitel --- %
+\input{01_chapters/01/01_introduction/_main}   % 1 Einleitung
+\input{01_chapters/02/02_fundamentals}         % 2 Grundlagen
+\input{01_chapters/03/03_stateOfKnowledge}     % 3 Stand des Wissens
+\input{01_chapters/04/04_summary}              % 4 Zusammenfassung
+
+% --- Verzeichnisse --- %
+\input{02_toc/01/bibliography}                 % 5 Literatur
+\input{02_toc/02/listoffigures}                % Abbildungsverzeichnis
+\input{02_toc/03/listoftables}                 % Tabellenverzeichnis
+\input{02_toc/04/listofequations}              % Formelverzeichnis (optional)
+\clearpage
+\input{02_toc/05/listofacronyms}               % Abkürzungen (optional)
+\clearpage
+
+% --- Anhang --- %
+\input{99_Z_Back_Matter/appendix/_main}
+
+\end{document}

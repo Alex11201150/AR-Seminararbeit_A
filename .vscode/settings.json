@@ -1,0 +1,6 @@
+{
+    "latex-workshop.latex.outDir": "%DIR%/out",
+    "latex-workshop.latex.recipe.default": "latexmk",
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "ltex.language": "de-AT"
+}

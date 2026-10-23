@@ -1,0 +1,127 @@
+% =====================================================================
+%  Pakete und Formatvorgaben laut FH-Burgenland-Vorlage (Seminararbeit)
+%  (abgeleitet aus dem MSc-Thesis-Template, 00_A_preamble/thesis.tex)
+% =====================================================================
+\usepackage{scrhack}
+\usepackage{etoolbox}                       % \ifdefempty fuer optionale Deckblatt-Zeilen
+
+% -- Seitenlayout: A4, links/rechts 2,5 cm, oben 2,5 cm, unten 2 cm, Bundsteg 1 cm
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2cm,bindingoffset=1cm,headsep=1.25cm,footskip=1.25cm]{geometry}
+
+% -- Kopf-/Fusszeile: nur Seitenzahl rechts unten (10 pt), keine Kopfzeile
+\usepackage[automark]{scrlayer-scrpage}
+\clearpairofpagestyles
+\ofoot*{\fontsize{10pt}{12pt}\selectfont\pagemark}
+\pagestyle{scrheadings}
+
+% -- Sprache, Zeichensatz, Schrift
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}                       % "Book Antiqua" entspricht Palatino
+\usepackage[final]{microtype}
+\usepackage{csquotes}                       % benoetigt fuer babel + biblatex-apa
+\usepackage{xurl}
+
+% -- Grafiken, Tabellen, Mathematik, Code
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{algorithm2e}
+\usepackage{verbatim}
+\usepackage{fmtcount}
+\usepackage{changepage}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\omark}{\ding{72}}
+\usepackage{lipsum}                         % Blindtext - kann entfernt werden
+
+% -- Abkuerzungen / Glossar
+\usepackage[printonlyused, nohyperlinks]{acronym}
+\usepackage[record=only,acronym,nonumberlist,nopostdot=false,toc=true,style=super]{glossaries-extra}
+
+% -- Abbildungen, Tabellen und Formeln fortlaufend nummerieren (wie in der Word-Vorlage:
+%    "Abbildung 1", "Tabelle 1", "Formel 1" statt "Abbildung 2.1")
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+
+% -- Beschriftungen: 10 pt, linksbuendig
+\usepackage[justification=RaggedRight,singlelinecheck=false,font=footnotesize]{caption}
+
+% -- Gliederung: max. 3 Ebenen im Inhaltsverzeichnis (z.B. 3.3.1)
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+% -- Schriftgroessen der Ueberschriften laut Vorlage
+\setkomafont{disposition}{\bfseries}
+\addtokomafont{title}{\fontsize{24}{24}\selectfont}         % Titel der Arbeit
+\addtokomafont{subtitle}{\fontsize{14}{16}\selectfont}      % uebriger Deckblatt-Text
+\addtokomafont{chapter}{\fontsize{16}{16}\selectfont}       % Ebene 1
+\addtokomafont{section}{\fontsize{14}{16}\selectfont}       % Ebene 2
+\addtokomafont{subsection}{\fontsize{14}{16}\selectfont}    % Ebene 3
+\addtokomafont{subsubsection}{\fontsize{13}{16}\selectfont} % Ebene 4
+
+% -- Tabellen: 10 pt (erste Zeile 11 pt -> {\fontsize{11pt}{12pt}\selectfont ...})
+\let\oldtabular\tabular
+\renewcommand{\tabular}{\fontsize{10pt}{14pt}\selectfont\oldtabular}
+
+% -- Absaetze: 12 pt, Zeilenabstand 16 pt, 6 pt Abstand, Blocksatz, kein Einzug
+\linespread{1.1}                            % 12 pt Palatino -> ca. 16 pt Zeilenabstand
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\renewcommand*{\chapterheadstartvskip}{\vspace*{0cm}}   % Kapitel beginnt oben auf der Seite
+
+\RedeclareSectionCommand[beforeskip=0pt,afterskip=.5\baselineskip plus .1\baselineskip minus .167\baselineskip]{chapter}
+\RedeclareSectionCommand[beforeskip=-1\baselineskip,afterskip=.2\baselineskip]{section}
+\RedeclareSectionCommand[beforeskip=-.75\baselineskip,afterskip=.5\baselineskip]{subsection}
+\RedeclareSectionCommand[beforeskip=-.75\baselineskip,afterskip=.25\baselineskip]{subsubsection}
+\RedeclareSectionCommand[beforeskip=.5\baselineskip,afterskip=-1em]{paragraph}
+\RedeclareSectionCommand[beforeskip=-.5\baselineskip,afterskip=-1em]{subparagraph}
+
+% -- Quellcode-Darstellung
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% -- Literatur: APA (Autor, Jahr, Seite) mit Biber
+\usepackage[
+    style=apa,
+    backend=biber,
+    sorting=nyt,
+    language=german,
+    sortlocale=de-DE,
+    natbib=true,
+    uniquename=false,
+    uniquelist=false,
+    maxbibnames=1000,
+    urldate=long,
+]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{hyperref}
