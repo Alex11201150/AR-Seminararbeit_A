@@ -1,0 +1,14 @@
+{
+  "name": "Seminararbeit LaTeX",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "latex",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop"
+      ]
+    }
+  }
+}

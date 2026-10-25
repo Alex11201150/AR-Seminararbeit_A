@@ -1,0 +1,10 @@
+services:
+  latex:
+    image: danteev/texlive:latest
+    working_dir: /workspace
+    volumes:
+      - type: bind
+        source: .
+        target: /workspace
+    entrypoint: []
+    command: ["sleep", "infinity"]
